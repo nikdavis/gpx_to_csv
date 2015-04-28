@@ -12,9 +12,9 @@ f.close
 
 puts "GPX file is #{gpx.length} lines."
 gpx = gpx.join
-time = gpx.scan(/<time>(.+?)<\/time>/m)
-lat = gpx.scan(/lat=\"(.+?)\"/m)
-lon = gpx.scan(/lon=\"(.+?)\"/m)
+time = gpx.scan(/<time>(.+?)<\/time>/m).flatten
+lat = gpx.scan(/lat=\"(.+?)\"/m).flatten
+lon = gpx.scan(/lon=\"(.+?)\"/m).flatten
 
 coords = time.zip(lat, lon)
 
